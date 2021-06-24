@@ -4,10 +4,11 @@ import { useTheme } from 'styled-components';
  
 import { Button } from '../../components/Button';
 import { AddUser } from '../../components/AddUser';
+import uuid, {  } from 'react-native-uuid';
 import { Container, Content, Input, ListUser, Footer } from './styles';
 
 interface UserProps {
-  id: string;
+  id: string | number[];
   name: string;
 }
 
@@ -15,12 +16,12 @@ export function Settings(){
   const theme = useTheme();
   const navigation = useNavigation();
 
-  const [name, setName] = useState<string>('');
+  const [name, setName] = useState('');
   const [users, setUsers] = useState<UserProps[]>([]);
 
   function HandleAddUser(){
     const data = {
-      id: String(),
+      id: uuid.v4(),
       name: name,
     }
     setUsers([...users, data]);
@@ -34,7 +35,6 @@ export function Settings(){
     navigation.navigate('Game');
   }
 
-  // useEffect(() = {}, [])
   
   return (
     <Container>
