@@ -1,30 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from 'styled-components';
  
 import { Button } from '../../components/Button';
-import { DataUserProps, AddUser } from '../../components/AddUser';
+import { AddUser } from '../../components/AddUser';
 import { Container, Content, Input, ListUser, Footer } from './styles';
 
-// export interface UserProps extends DataUserProps {
-//   id: string;
-// }
+interface UserProps {
+  id: string;
+  name: string;
+}
 
 export function Settings(){
-  const navigation = useNavigation();
-  const [value, setValue] = useState<string>('');
-  const [users, setUsers] = useState<string[]>([]);
   const theme = useTheme();
+  const navigation = useNavigation();
 
-  
-  function HandleClick(){
-    setUsers([...users, value]);
+  const [name, setName] = useState<string>('');
+  const [users, setUsers] = useState<UserProps[]>([]);
+
+  function HandleAddUser(){
+    const data = {
+      id: String(),
+      name: name,
+    }
+    setUsers([...users, data]);
+  }
+
+  function handleRemoveUser(id: string){
+    setUsers([...users.filter( name => name.id !== id )])
   }
   
   function HandleGame(){
     navigation.navigate('Game');
   }
 
+  // useEffect(() = {}, [])
   
   return (
     <Container>
@@ -32,22 +42,21 @@ export function Settings(){
         <Input
           placeholder="Nome do participante"
           placeholderTextColor={theme.colors.text}
-          value={value}
-          onChangeText={text => {setValue(text)}}
+          onChangeText={setName}
         />
-        <Button title="adicionar Participante" onPress={HandleClick}/>
+        <Button title="adicionar Participante" onPress={HandleAddUser}/>
 
-        <ListUser
+        <ListUser 
           data={users}
           keyExtractor={item => item.id}
-          renderItem={({ item }) =>
+          renderItem={({ item }) => (
             <AddUser
-              id={item.id}
-              name={value}
-              onPress={() => {}}
+              name={item.name}
+              onPress={() => handleRemoveUser(item.id)}
             />
-          }
+          )}
         />
+
       </Content>
       
       <Footer>

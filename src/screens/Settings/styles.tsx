@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { FlatList } from 'react-native';
 
-import { UserProps } from '.'
 
 
 export const Container = styled.View`
@@ -24,10 +23,11 @@ export const Input = styled.TextInput`
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.shape};
   border-radius: 5px;
+  margin-bottom: 10px;
 `;
 
 
-export const ListUser = styled(FlatList as new () => FlatList<UserProps>).attrs({
+export const ListUser = styled(FlatList as new () => FlatList).attrs({
   showsVerticalScrollIndicator: false,
   contentContainerStyle: {
   }

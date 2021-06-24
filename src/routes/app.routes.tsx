@@ -15,7 +15,7 @@ export function AppRoutes(){
   
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Settings"
       screenOptions={{
         headerTransparent: false,
         headerStyle: {

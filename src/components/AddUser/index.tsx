@@ -1,16 +1,17 @@
 import React from 'react';
+import { RectButtonProps } from 'react-native-gesture-handler';
 import { Container, Text, Button, Icon } from './styles';
 
-export interface DataUserProps {
+interface Props extends RectButtonProps {
   name: string;
-  onPress: () => void;
+  // onPress: () => void;
 }
 
-export function AddUser({name, onPress}: DataUserProps){
+export function AddUser({name, ...rest}: Props){
   return (
     <Container>
       <Text>{name}</Text>
-      <Button onPress={onPress}>
+      <Button {...rest} >
         <Icon name="user-times"/>
       </Button>
     </Container>
