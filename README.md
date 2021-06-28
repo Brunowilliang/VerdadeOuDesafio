@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.goagenda.app/wp-content/uploads/2021/06/foreground.png" height="300px" alt="Fale Mais" />
+  <img src="https://www.goagenda.app/wp-content/uploads/2021/06/LogoVerdadeOuDesafio.png" height="300px" alt="Verdade ou Desafio" />
 </p>
 
 <h5 align="center">Revele a verdade e apimente as coisas neste jogo viciante 🔥</h5>
