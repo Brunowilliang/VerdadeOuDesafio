@@ -1,9 +1,9 @@
 {
-  "name": "falemais",
-  "displayName": "Fale Mais",
+  "name": "verdadeoudesafio",
+  "displayName": "Verdade ou Desafio",
   "expo": {
-    "name": "Fale Mais",
-    "slug": "falemais",
+    "name": "Verdade ou Desafio",
+    "slug": "verdadeoudesafio",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
@@ -12,14 +12,12 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#5636D3"
+      "resizeMode": "contain"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/foreground.png",
-        "backgroundImage": "./assets/background.png",
-        "backgroundColor": "#5636D3"
+        "backgroundImage": "./assets/background.png"
       }
     },
     "description": "a melhor experiência em telefonia nacional"

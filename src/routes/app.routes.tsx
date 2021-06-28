@@ -6,7 +6,6 @@ import { useTheme } from 'styled-components';
 
 import { Home } from '../screens/Home';
 import { Settings } from '../screens/Settings';
-import { Game } from '../screens/Game';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +14,7 @@ export function AppRoutes(){
   
   return (
     <Stack.Navigator
-      initialRouteName="Settings"
+      initialRouteName="Home"
       screenOptions={{
         headerTransparent: false,
         headerStyle: {
@@ -46,16 +45,6 @@ export function AppRoutes(){
         name="Settings"
         component={Settings}
         options={{
-          title: 'Adicione os participantes',
-          headerBackTitleVisible: false,
-        }} 
-      />
-
-      <Stack.Screen
-        name="Game"
-        component={Game}
-        options={{
-          headerShown: false,
           title: 'Adicione os participantes',
           headerBackTitleVisible: false,
         }} 

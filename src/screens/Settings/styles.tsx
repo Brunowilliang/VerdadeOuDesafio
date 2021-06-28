@@ -7,6 +7,7 @@ import { FlatList } from 'react-native';
 export const Container = styled.View`
   flex: 1;
   padding: 24px;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 
@@ -20,7 +21,7 @@ export const Input = styled.TextInput`
   padding: 0px 18px;
   font-size: ${RFValue(14)}px;
   font-family: ${({ theme }) => theme.fonts.regular};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.shape};
   border-radius: 5px;
   margin-bottom: 10px;

@@ -1,29 +1,26 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { Container, Title, ContentButton, WrapperButton } from './styles';
 import { Button } from '../../components/Button';
 
-export function Game(){
-  const navigation = useNavigation();
+interface Props {
+  closeModal: () => void;
+}
 
-
-  function HandleClick(){
-    navigation.navigate('Settings');
-  }
+export function ModalGame({ closeModal }: Props){
 
   return (
     <Container>
-      <Title>Bruno</Title>
+      <Title>Jogador</Title>
       <Title>
         escolha as
         opções abaixo
       </Title>
       <ContentButton>
         <WrapperButton>
-          <Button title="Verdade" onPress={HandleClick}/>
+          <Button title="Verdade" onPress={closeModal}/>
         </WrapperButton>
         <WrapperButton>
-          <Button title="Desafio" onPress={HandleClick}/>
+          <Button title="Desafio" onPress={closeModal}/>
         </WrapperButton>
       </ContentButton>
     </Container>

@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState, useEffect, useContext } from 'react';
+import { StatusBar, Modal } from 'react-native';
 import { useTheme } from 'styled-components';
- 
+
+import { ModalGame } from '../ModalGame';
+
 import { Button } from '../../components/Button';
 import { AddUser } from '../../components/AddUser';
 import uuid, {  } from 'react-native-uuid';
 import { Container, Content, Input, ListUser, Footer } from './styles';
-
-interface UserProps {
+export interface UserProps {
   id: string | number[];
   name: string;
 }
 
 export function Settings(){
   const theme = useTheme();
-  const navigation = useNavigation();
+
 
   const [name, setName] = useState('');
   const [users, setUsers] = useState<UserProps[]>([]);
+  const [modal, setModal] = useState(false);
 
   function HandleAddUser(){
     const data = {
@@ -31,17 +33,22 @@ export function Settings(){
     setUsers([...users.filter( name => name.id !== id )])
   }
   
-  function HandleGame(){
-    navigation.navigate('Game');
+  function HandleGameModal(){
+    setModal(true);
+  }
+
+  function HandleCloseGameModal(){
+    setModal(false);
   }
 
   
   return (
     <Container>
+      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
       <Content>
         <Input
           placeholder="Nome do participante"
-          placeholderTextColor={theme.colors.text}
+          placeholderTextColor={theme.colors.primary}
           onChangeText={setName}
         />
         <Button title="adicionar Participante" onPress={HandleAddUser}/>
@@ -60,8 +67,12 @@ export function Settings(){
       </Content>
       
       <Footer>
-        <Button title="Começar Jogo" onPress={HandleGame}/>
+        <Button title="Começar Jogo" onPress={HandleGameModal}/>
       </Footer>
+
+      <Modal visible= {modal} animationType="fade" >
+        <ModalGame closeModal={HandleCloseGameModal}/>
+      </Modal>
     </Container>
   );
 }
